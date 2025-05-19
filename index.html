@@ -55,6 +55,23 @@
                 </a>
             </div>
         </div>
+    
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.status').addEventListener('click', function() {
+                this.classList.toggle('glowing');
+                setTimeout(() => this.classList.remove('glowing'), 2000);
+            });
+            const h1 = document.querySelector('h1');
+            h1.addEventListener('mouseover', () => {
+                h1.style.textShadow = '0 0 20px gold';
+            });
+            h1.addEventListener('mouseout', () => {
+                h1.style.textShadow = 'none';
+            });
+        });
+    </script>
 </body>
 </html>

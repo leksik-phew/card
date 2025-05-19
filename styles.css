@@ -178,5 +178,68 @@ body {
 .interest-item {
     white-space: normal;
     word-break: break-word;
-    min-width: 80px; /* минимальная ширина элемента */
+    min-width: 80px; 
+}
+
+
+
+.status.glowing {
+    animation: status-glow 2s ease-out;
+}
+
+@keyframes status-glow {
+    0% { text-shadow: 0 0 10px #9370db; }
+    50% { text-shadow: 0 0 30px #9370db, 0 0 15px white; }
+    100% { text-shadow: 0 0 10px #9370db; }
+}
+
+.avatar:hover img {
+    filter: grayscale(0) contrast(1.2);
+    transform: scale(1.05);
+}
+
+.avatar {
+    transition: transform 0.3s;
+    cursor: crosshair;
+}
+
+.content-section:hover {
+    box-shadow: 0 0 15px rgba(123, 104, 238, 0.3);
+}
+
+.stat-item:hover {
+    position: relative;
+}
+
+.stat-item:hover::after {
+    content: '★';
+    position: absolute;
+    right: -10px;
+    top: -8px;
+    color: gold;
+    animation: star-pop 0.5s;
+}
+
+@keyframes star-pop {
+    0% { transform: scale(0); }
+    80% { transform: scale(1.5); }
+    100% { transform: scale(1); }
+}
+
+h1 {
+    transition: 0.3s all ease;
+}
+
+h1:hover {
+    transform: rotateZ(-1deg) scale(1.02);
+}
+
+body {
+    background: linear-gradient(45deg, #0a0a1a, #1a0a1a);
+    animation: bg-pulse 20s infinite;
+}
+
+@keyframes bg-pulse {
+    0%, 100% { background-size: 100% 100%; }
+    50% { background-size: 150% 150%; }
 }
