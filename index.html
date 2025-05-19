@@ -3,267 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Архангел Михаил</title>
+    <title>Архангел Михаил | SpaceHey</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=MedievalSharp&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            font-family: 'MedievalSharp', cursive;
-            position: relative;
-            overflow: hidden;
-            background: #000;
-        }
-
-        .background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            /* background: url('https://images.unsplash.com/photo-1589254065878-42c9da997008?auto=format&fit=crop&w=1920') center/cover; */
-            animation: holyGlow 8s infinite alternate;
-            filter: sepia(1) hue-rotate(300deg);
-        }
-
-        @keyframes holyGlow {
-            0% { opacity: 0.8; filter: sepia(1) hue-rotate(300deg) brightness(0.9); }
-            100% { opacity: 1; filter: sepia(1) hue-rotate(300deg) brightness(1.2); }
-        }
-
-        .card {
-            background: rgba(10, 10, 30, 0.7);
-            padding: 2.5rem;
-            border-radius: 15px;
-            backdrop-filter: blur(12px);
-            box-shadow: 0 0 60px rgba(255, 215, 0, 0.3);
-            max-width: 600px;
-            width: 100%;
-            text-align: center;
-            position: relative;
-            border: 2px solid #daa520;
-            animation: cardEnter 1s ease-out, cardGlow 3s infinite alternate;
-            transform-style: preserve-3d;
-        }
-
-        @keyframes cardEnter {
-            from { transform: translateY(100px) rotateX(90deg); opacity: 0; }
-            to { transform: translateY(0) rotateX(0); opacity: 1; }
-        }
-
-        @keyframes cardGlow {
-            from { box-shadow: 0 0 30px rgba(255, 215, 0, 0.3); }
-            to { box-shadow: 0 0 60px rgba(255, 215, 0, 0.6); }
-        }
-
-        .avatar {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            margin: 0 auto 2rem;
-            border: 3px solid #daa520;
-            overflow: hidden;
-            position: relative;
-            animation: avatarFloat 6s ease-in-out infinite;
-            transform-style: preserve-3d;
-        }
-
-        @keyframes avatarFloat {
-            0%, 100% { transform: translateY(0) rotateZ(0deg); }
-            25% { transform: translateY(-20px) rotateZ(2deg); }
-            50% { transform: translateY(10px) rotateZ(-2deg); }
-            75% { transform: translateY(-10px) rotateZ(1deg); }
-        }
-
-        .avatar::before {
-            content: '';
-            position: absolute;
-            width: 150%;
-            height: 150%;
-            background: radial-gradient(circle, gold 0%, transparent 70%);
-            animation: haloSpin 15s linear infinite;
-            mix-blend-mode: overlay;
-        }
-
-        @keyframes haloSpin {
-            100% { transform: rotate(360deg); }
-        }
-
-        .avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: contrast(1.2) brightness(1.1);
-            position: relative;
-            z-index: 1;
-        }
-
-        h1 {
-            color: #daa520;
-            margin: 1.5rem 0;
-            font-size: 2.5rem;
-            font-family: 'Cinzel Decorative', cursive;
-            text-shadow: 0 0 20px rgba(218, 165, 32, 0.5);
-            animation: textBurn 2s infinite alternate;
-        }
-
-        @keyframes textBurn {
-            from { text-shadow: 0 0 10px gold, 0 0 20px darkorange; }
-            to { text-shadow: 0 0 30px gold, 0 0 40px darkorange; }
-        }
-
-        .motto {
-            color: #9370db;
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            animation: mottoShine 3s infinite alternate;
-        }
-
-        @keyframes mottoShine {
-            from { opacity: 0.7; text-shadow: 0 0 5px #9370db; }
-            to { opacity: 1; text-shadow: 0 0 20px #9370db; }
-        }
-
-        .links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-            perspective: 1000px;
-        }
-
-        a {
-            text-decoration: none;
-            color: #fff;
-            padding: 15px 30px;
-            border-radius: 30px;
-            background: linear-gradient(45deg, #483d8b, #6a5acd);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            border: 1px solid #9370db;
-            position: relative;
-            overflow: hidden;
-            transform-style: preserve-3d;
-            animation: buttonEnter 0.8s ease-out;
-        }
-
-        @keyframes buttonEnter {
-            from { transform: rotateX(90deg) translateY(50px); opacity: 0; }
-            to { transform: rotateX(0) translateY(0); opacity: 1; }
-        }
-
-        a:hover {
-            transform: translateY(-3px) rotateZ(1deg);
-            box-shadow: 0 10px 30px rgba(147, 112, 219, 0.5);
-            background: linear-gradient(45deg, #6a5acd, #483d8b);
-        }
-
-        a i {
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-            animation: iconPulse 2s infinite;
-        }
-
-        @keyframes iconPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-
-        @media (max-width: 480px) {
-            .card {
-                padding: 1.5rem;
-            }
-            
-            .avatar {
-                width: 140px;
-                height: 140px;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            a {
-                padding: 12px 25px;
-            }
-        }
-        .particles {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .particle {
-            position: absolute;
-            background: radial-gradient(circle, gold 10%, transparent 100%);
-            border-radius: 50%;
-            animation: particleFloat linear infinite;
-        }
-
-        @keyframes particleFloat {
-            from { transform: translateY(-100vh) rotate(0deg); }
-            to { transform: translateY(100vh) rotate(360deg); }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="background"></div>
+    <div class="glow-effect"></div>
     
-    <div class="particles">
-    </div>
-
-    <div class="card">
-        <div class="avatar">
-            <img src="avatar.jpg" alt="Архангел Михаил">
+    <div class="profile-container">
+        <div class="profile-header">
+            <div class="avatar">
+                <img src="avatar.jpg" alt="Архангел Михаил">
+            </div>
+            <div class="profile-info">
+                <h1 style="color:yellow;">АРХАНГЕЛ МИХАИЛ</h1>
+                <div class="status">🛡️ Quis ut Deus?</div>
+                <div class="stats">
+                    <div class="stat-item">👥 ∞ друзей</div>
+                    <div class="stat-item">📝 ∞ постов</div>
+                    <div class="stat-item">⭐ ∞ звёзд</div>
+                </div>
+            </div>
         </div>
-        <h1>АРХАНГЕЛ МИХАИЛ</h1>
-        <div class="motto">QUIS UT DEUS? • КТО КАК БОГ?</div>
-        <div class="links">
-            <a href="https://t.me/bez_organov" target="_blank">
-                <i class="fab fa-telegram"></i>
-                Telegram
-            </a>
-            <a href="https://github.com/leksik-phew" target="_blank">
-                <i class="fab fa-github"></i>
-                Github
-            </a>
+
+        <div class="content-section">
+            <h3 class="section-title">Обо мне</h3>
+            <p>Верховный воитель света, предводитель небесного воинства. Защитник божественного порядка и великого Sublime Text.</p>
+        </div>
+
+        <div class="content-section">
+            <h3 class="section-title">Интересы</h3>
+            <div class="interests-grid">
+                <div class="interest-item">Богословие</div>
+                <div class="interest-item">Программирование</div>
+                <div class="interest-item">Астрономия</div>
+                <div class="interest-item">Музыка</div>
+                <div class="interest-item">Философия</div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h3 class="section-title">Контакты</h3>
+            <div class="links">
+                <a href="https://t.me/bez_organov" class="link-button" target="_blank">
+                    <i class="fab fa-telegram"></i>
+                    Telegram
+                </a>
+                <a href="https://github.com/leksik-phew" class="link-button" target="_blank">
+                    <i class="fab fa-github"></i>
+                    GitHub
+                </a>
+            </div>
         </div>
     </div>
-
-    <script>
-        function createParticles() {
-            const particlesContainer = document.querySelector('.particles');
-            for(let i = 0; i < 50; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.cssText = `
-                    left: ${Math.random() * 100}%;
-                    width: ${Math.random() * 5 + 2}px;
-                    height: ${Math.random() * 5 + 2}px;
-                    animation-duration: ${Math.random() * 5 + 5}s;
-                    opacity: ${Math.random() * 0.5 + 0.3};
-                `;
-                particlesContainer.appendChild(particle);
-            }
-        }
-        createParticles();
-    </script>
 </body>
 </html>
